@@ -1,0 +1,41 @@
+{
+  "name": "su-calendar",
+  "version": "1.0.0",
+  "description": "사용성 좋은 달력 컴포넌트",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --progress --mode development",
+    "build": "webpack --progress --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksy8230/react-calendar.git"
+  },
+  "keywords": [
+    "react",
+    "calendar"
+  ],
+  "author": "kimsuyoung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ksy8230/react-calendar/issues"
+  },
+  "homepage": "https://github.com/ksy8230/react-calendar#readme",
+  "devDependencies": {
+    "@babel/core": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  },
+  "dependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
