@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   // entry: 웹팩에게 어플리케이션이 어디서 시작하고 어디서부터 파일들을 묶을건지 시작점을 정해준다.
@@ -24,10 +25,20 @@ module.exports = {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // MiniCssExtractPlugin.loader, // js 스트링에서 스타일 노드 생성
+          "style-loader",
+          "css-loader", // css를 js로 변환
+          "sass-loader" // 노드 사스를 이용해 sass를 css로 컴파일
+        ],
+        exclude: /node_modules/
+      }
     ],
   },
   // resolve: 웹팩이 해석할 확장자를 지정.
-  resolve: { extensions: ["*", ".js", ".jsx"] },
+  resolve: { extensions: ["*", ".js", ".jsx", ".scss"] },
   // output: 번들링 된 결과물을 어디다 둘 것인지에 대한 설정이 가능.
   output: {
     path: path.join(__dirname, "dist/"),
@@ -54,5 +65,6 @@ module.exports = {
       filename: "./index.html",
     }),
     new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({ filename: 'css/style.css' })
   ],
 };
